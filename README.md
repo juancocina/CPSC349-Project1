@@ -1,3 +1,16 @@
+# Group Info
+Members:
+- Marco Chaves
+- Shane Wilson
+- Tony Nguyen
+- Juan Cocina
+
+Short Project Description:
+- Visitors can create their own "which character are you?" quizzes
+
+# NOTE: React node_modules have not been uploaded to this repository
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
