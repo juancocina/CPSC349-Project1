@@ -2,30 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Tabs from "./components/Tabs";
+import Question from "./components/addQuestion";
 
 class QuizBuilder extends React.Component {
-  addQuestion() {
-    const handleClick = event => {
-      event.preventDefault();
-      alert('add a question was clicked');
-    }
-
-    return (
-      <div className="questionSection">
-        <h1>Add Questions</h1>
-        <div className="question">
-          <fieldset>
-            <label>
-              <p>test</p>
-              <input name="question"/>
-            </label>
-          </fieldset>
-          <button onClick={handleClick}>Add a Question (this button does not work yet)</button>
-        </div>
-      </div>
-    )
-  }
-  quizName() {
+  quiz() {
     const handleSubmit = event => {
       event.preventDefault();
       alert('You have submitted the form');
@@ -60,8 +40,10 @@ class QuizBuilder extends React.Component {
         <Tabs>
           <div label="Create">
             <p>Here will be the section for writing questions, need to develop forms for it</p>
-            {this.quizName()}
-            {this.addQuestion()}
+            {this.quiz()}
+            <Question>
+              <div label="questionSection"></div>
+            </Question>
           </div>
           <div label="Map Results">
             <p>Here we will be able to map the quesitons to results</p>
