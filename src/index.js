@@ -20,7 +20,7 @@ class QuizBuilder extends React.Component {
               <input name="question"/>
             </label>
           </fieldset>
-          <button onClick={handleClick}>Add a Question</button>
+          <button onClick={handleClick}>Add a Question (this button does not work yet)</button>
         </div>
       </div>
     )
