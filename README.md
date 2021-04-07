@@ -1,6 +1,6 @@
 # Group Info
 Members:
-- Marco Chaves
+- Marco Chavez
 - Shane Wilson
 - Tony Nguyen
 - Juan Cocina
