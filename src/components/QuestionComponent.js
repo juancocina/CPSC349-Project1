@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './QuestionComponent.css'
 
 export default function QuestionComp({ question, nxtQuestion }) {
   const [targetClass, setTargetClass]   =   useState('')

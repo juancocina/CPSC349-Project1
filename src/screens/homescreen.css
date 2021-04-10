@@ -1,5 +1,4 @@
 .homemain {
-  margin: auto;
   width: auto;
   padding: 10px;
   padding-top: 20px;
@@ -14,7 +13,7 @@
 
 .homemain .btn {
   padding: 12px;
-  background-color: cornflowerblue;
+  background-color: var(--mainColor);
   color: white;
   text-align: center;
   text-decoration: none;
