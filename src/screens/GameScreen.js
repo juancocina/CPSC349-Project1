@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import QuestionComp from '../components/QuestionComponent'
-import { loadQuestion } from '../components/LoadQuestion'
+import { loadQuestion } from '../helpers/LoadQuestion'
 import QuizCategories from '../components/QuizCategories'
 import GameHUD from '../components/GameHUD'
-import SaveScoreForm from '../components/SaveScoreForm'
+import FormSaveScore from '../components/FormSaveScore'
 
-export default function Game({gameHistory})
+export default function Game({history})
 {
   const [catChoice, setCatChoice] = useState(null)
   const [questions, setQuestions] = useState([])
@@ -40,15 +39,16 @@ export default function Game({gameHistory})
   //Saved score
   const savedScore = () =>
   {
-    gameHistory.push('/')
+    history.push('/')
   }
 
   //Change Question
   const changeQuestion = useCallback
   (
+    //calculating the score for previous question and add the score
     (scoreBonus = 0) =>
     {
-      let scoreModifier = 10 - elapsedTime
+      let scoreModifier = 30 - elapsedTime
 
       if (scoreModifier < 1)
         scoreModifier = 1
@@ -80,6 +80,13 @@ export default function Game({gameHistory})
     ]
   )
 
+  useEffect(() => {
+    if (!currQuestion && questions.length) {
+      changeQuestion()
+      setRunning(true)
+    }
+  }, [currQuestion, questions.length])
+
   return (
     <>
       {loading && !finished && catChoice && <div id='loading'/>}
@@ -87,17 +94,13 @@ export default function Game({gameHistory})
       {!finished && !loading && currQuestion && catChoice && 
       (
         <>
-          <GameHUD questionNum={questionNum} score={score}/>
+          <GameHUD questionNum={questionNum} time={elapsedTime} score={score}/>
           <QuestionComp 
             question={currQuestion} 
-            changeQuestion={changeQuestion}/>
+            nxtQuestion={changeQuestion}/>
         </>
       )}
-      {finished && <SaveScoreForm score={score} savedScore={savedScore} />}
-
-      <Link to='/' className='btn'>
-        Go Home
-      </Link>
+      {finished && <FormSaveScore score={score} savedScore={savedScore} />}
     </>
   )
 }

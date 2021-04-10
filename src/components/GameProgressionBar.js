@@ -1,4 +1,5 @@
 import React from 'react'
+import './GameProgressionBar.css'
 
 export default function ProgressionBar({ max, current })
 {
